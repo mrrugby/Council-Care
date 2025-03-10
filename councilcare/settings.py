@@ -1,19 +1,17 @@
 
 
 from pathlib import Path
-import dj_database_url
 import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = "councilcare@2025"
 
 DEBUG = True
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", " ").split(',')
-
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
