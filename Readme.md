@@ -1,24 +1,23 @@
 
 # CouncilCare - IT Repair Request Management System
 
-CouncilCare is a Django-based web application designed to streamline IT repair request processes within organizations. The system aims to enhance transparency, improve communication, and replace traditional paper-based processes with a digital, user-friendly solution. 
+CouncilCare is a Django-based web application designed to streamline IT repair request processes within organizations. The system aims to enhance transparency, improve communication, and replace traditional paper-based processes with a digital, user-friendly solution.
 
 ---
 
 ## 🚀 Features
 
-### **User Roles**
+## **User Roles**
+
 1. **Regular Users**  
    - Register and log in securely.
    - Submit IT repair requests with detailed descriptions and attachments.
    - View the status of their submitted requests.
 
-
 2. **IT Technicians**  
    - View all pending repair requests.
    - Accept or claim requests for resolution.
    - Update request statuses (e.g., "In Progress," "Resolved").
-   
 
 3. **Administrators**  
    - Manage users (add, edit, deactivate accounts).
@@ -29,6 +28,7 @@ CouncilCare is a Django-based web application designed to streamline IT repair r
 ---
 
 ### **Core Features**
+
 - **Request Submission Form**  
   Users can describe their IT issues, select a category (e.g., hardware, software), and upload images of damaged equipment.
 
@@ -59,25 +59,29 @@ CouncilCare is a Django-based web application designed to streamline IT repair r
 ## ⚙️ Installation Guide
 
 1. **Clone the Repository**  
+
    ```bash
    git clone https://github.com/mrrugby/councilcare.git
    cd councilcare
    ```
 
 2. **Set Up Virtual Environment**  
+
    ```bash
    python -m venv venv
    source venv/bin/activate  # For Windows: venv\Scripts\activate
    ```
 
-3. **Install Dependencies**  
+3. **Install Dependencies**
+  
    ```bash
    pip install -r requirements.txt
    ```
 
 4. **Configure Environment Variables**  
    Create a `.env` file in the project root with the following:
-   ```
+
+   ```text
    SECRET_KEY=your_secret_key
    DEBUG=True
    ALLOWED_HOSTS=localhost,127.0.0.1
@@ -88,11 +92,13 @@ CouncilCare is a Django-based web application designed to streamline IT repair r
    ```
 
 5. **Apply Migrations**  
+
    ```bash
    python manage.py migrate
    ```
 
 6. **Run the Development Server**  
+
    ```bash
    python manage.py runserver
    ```
@@ -105,6 +111,7 @@ CouncilCare is a Django-based web application designed to streamline IT repair r
 ## 🧩 App Structure
 
 The project is organized into two main apps:  
+
 1. **app** - Core functionality of the system
 2. **councilcare** - project settings.py
 
@@ -112,16 +119,17 @@ Each app follows the Django MVC (Model-View-Controller) architecture.
 
 ---
 
-
 ## ✨ Contribution Guidelines
 
 I'd like contributions! Please follow these steps:
 
 1. Fork the repository and clone it locally.
 2. Create a new feature branch:
+
    ```bash
    git checkout -b feature-name
    ```
+
 3. Commit your changes and push them to your fork.
 4. Create a pull request for review.
 
@@ -143,7 +151,8 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 ## 📞 Contact
 
 For questions, suggestions, or feedback, reach out via:  
-- **Email:** snjishaka@gmail.com
+
+- **Email:** <snjishaka@gmail.com>
 - **GitHub Issues:** [CouncilCare Issues](https://github.com/mrrugby/councilcare/issues)
 
 ---
