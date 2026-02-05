@@ -5,6 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap-main.css' %}?v=3">
+    
+
     <title>CouncilCare</title>
      <link rel="icon" type="image/x-icon" href="{% static 'img/logo.png' %}">
   </head>
@@ -16,8 +19,21 @@
    
     {% endblock content %}
 
-    <div class="src">
-      <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    </div>
+    {% block footer%}
+
+  <div class="text-center text-muted mt-1" style="font-size: 0.6rem;">
+  Built by Shaka • 
+  <a style="text-decoration: none;" href="https://github.com/mrrugby/councilcare" target="_blank" rel="noopener">
+    View on GitHub
+  </a>
+
+  <div class="d-flex justify-content-center">
+    <a href="https://technav.store" target="_blank" rel="noopener" class="powered-by shadow-sm">
+      <span class="powered-text">Powered by</span>
+      <img src="{% static 'img/taifadevs.png' %}" alt="TaifaDevs logo" class="powered-logo">
+    </a>
+  </div>
+</div>
+{% endblock footer %}
   </body>
 </html>

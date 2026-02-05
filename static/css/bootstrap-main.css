@@ -1,0 +1,30 @@
+.powered-by {
+  display: inline-flex;
+  align-items: center;       
+  justify-content: center;    
+  gap: 12px;
+  padding: 10px 15px;
+
+  background: #ffffff;
+  border-radius: 999px;
+  text-decoration: none;
+
+  z-index: 999;
+}
+
+
+.powered-logo {
+  height: 20px;      
+  width: auto;
+  display: block;
+}
+
+
+.powered-text {
+  font-size: 0.5rem;
+  line-height: 1.2;
+  white-space: nowrap;
+
+  display: flex;
+  align-items: center;
+}

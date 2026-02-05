@@ -3,9 +3,9 @@
 {% block content %}
 
 
-<section class="vh-100 gradient-custom">
+<section class="vh-90 gradient-custom">
   <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="row d-flex justify-content-center align-items-center h-90">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card bg-dark text-white" style="border-radius: 1rem;">
           <div class="card-body p-5 text-center">
@@ -52,11 +52,9 @@
                   <p>Don't have an account?</p>
                   <div class="d-flex flex-column">
                     <a href="{% url 'employee_signup' %}" class="btn btn-outline-light mb-2">Employee Signup</a>
-                    <a href="{% url 'technican-signup' %}" class="btn btn-outline-light mb-2">Technician Signup</a>
-                   
-                     <a href="{% url 'admin_signup' %}" class="btn btn-outline-light">Admin Signup</a>
-                   
-                   
+                    <a href="{% url 'technican_signup' %}" class="btn btn-outline-light mb-2">Technician Signup</a>
+                    <a href="{% url 'admin_signup' %}" class="btn btn-outline-light">Admin Signup</a>
+                    
                   </div>
                 </div>
 
@@ -85,3 +83,20 @@
   });
 </script>
 {% endblock %}
+
+{% block footer%}
+
+  <div class="text-center text-muted mt-1" style="font-size: 0.6rem;">
+  Built by Shaka • 
+  <a style="text-decoration: none;" href="https://github.com/mrrugby/councilcare" target="_blank" rel="noopener">
+    View on GitHub
+  </a>
+
+  <div class="d-flex justify-content-center">
+    <a href="https://technav.store" target="_blank" rel="noopener" class="powered-by shadow-sm">
+      <span class="powered-text">Powered by</span>
+      <img src="{% static 'img/taifadevs.png' %}" alt="TaifaDevs logo" class="powered-logo">
+    </a>
+  </div>
+</div>
+{% endblock footer %}

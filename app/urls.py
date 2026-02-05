@@ -33,7 +33,7 @@ urlpatterns = [
     path('admin/request/<int:request_id>/update/', update_request_status, name='update_request_status'),
     
     #tech
-    path('technician/signup/', TechnicianSignUpView.as_view(), name='technican-signup'),
+    path('technician/signup/', TechnicianSignUpView.as_view(), name='technican_signup'),
     path('technician/dashboard/', technician_dashboard, name='technician_dashboard'),
     path('technician/request/<int:request_id>/update/<str:employee_username>/', update_task_status, name='update_task_status'),
     

@@ -2,88 +2,96 @@
 {% load static %}
 
 {% block content %}
+<div class="container py-5" style="max-width: 980px;">
 
-<div class="container-fluid px-0">
-    <!-- Hero -->
-    <header class="hero text-center py-5" style="background: #1C1C28; color: #F5F5F5;">
-        <div class="container">
-            <div class="mb-4">
-                <img src="{% static 'img/logo.png'%}" alt="logo" class="img-fluid" style="max-width: 150px;">
-            </div>
-            <h1 class="display-4 fw-bold mb-3">Welcome to CouncilCare</h1>
-            <p class="lead">Transform Your IT Support Process with Ease</p>
-            <a href="{% url 'login' %}" class="btn btn-primary btn-lg mt-4 shadow-sm">Get Started</a>
-        </div>
-    </header>
+  <!-- Header -->
+  <div class="text-center mb-5">
+    <img src="{% static 'img/logo.png' %}" alt="CouncilCare logo" class="img-fluid mb-3" style="max-width: 120px;">
+    <h1 class="fw-bold mb-2">CouncilCare</h1>
+    <p class="text-muted mb-4">
+      IT Repair Request Management System — a simple way for organizations to log, track, and resolve IT issues.
+    </p>
 
-    <!-- Features -->
-    <section class="features py-5" style="background: #242435; color: #F5F5F5;">
-        <div class="container">
-            <h2 class="text-center mb-5" style="color: #87CEEB;">Why Choose CouncilCare?</h2>
-            <div class="row g-4">
-                <div class="col-md-4 d-flex">
-                    <div class="card text-center border-0 shadow-sm flex-fill" style="background: #2E2E40; color: #F5F5F5;">
-                        <img src="{% static 'img/empowered.jpeg' %}" alt="User Empowerment" class="img-fluid rounded-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Empower Users</h5>
-                            <p class="card-text">Easily log IT repair requests with intuitive design.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-flex">
-                    <div class="card text-center border-0 shadow-sm flex-fill" style="background: #2E2E40; color: #F5F5F5;">
-                        <img src="{% static 'img/smooth.jpg' %}" alt="Technician Workflow" class="img-fluid rounded-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Efficient Technicians</h5>
-                            <p class="card-text">Streamlined task management for quick resolution.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-flex">
-                    <div class="card text-center border-0 shadow-sm flex-fill" style="background: #2E2E40; color: #F5F5F5;">
-                        <img src="{% static 'img/oversight.jpg' %}" alt="Administrative Oversight" class="img-fluid rounded-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Smart Administration</h5>
-                            <p class="card-text">Comprehensive analytics for better management.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="d-flex justify-content-center gap-2 flex-wrap">
+      <a href="{% url 'login' %}" class="btn btn-primary px-4">Log in</a>
+      <div class="dropdown d-inline-block">
+</div>
+ </div>
+  </div>
 
-    <!-- Workflow -->
-    <section class="workflow py-5" style="background: #1C1C28; color: #F5F5F5;">
-        <div class="container">
-            <h2 class="text-center mb-5" style="color: #87CEEB;">How It Works</h2>
-            <div class="row align-items-start">
-                <div class="col-md-4 text-center">
-                    <div class="step rounded-circle mx-auto mb-3" style="width: 70px; height: 70px; background: #87CEEB; color: white; line-height: 70px;">1</div>
-                    <h5>Create Request</h5>
-                    <p>Users log IT equipment issues through a simple interface.</p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="step rounded-circle mx-auto mb-3" style="width: 70px; height: 70px; background: #87CEEB; color: white; line-height: 70px;">2</div>
-                    <h5>Technician Assignment</h5>
-                    <p>Technicians receive and accept tasks based on expertise.</p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <div class="step rounded-circle mx-auto mb-3" style="width: 70px; height: 70px; background: #87CEEB; color: white; line-height: 70px;">3</div>
-                    <h5>Resolution Tracking</h5>
-                    <p>Real-time updates for complete transparency.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- What it does -->
+  <div class="row g-4 mb-4">
+    <div class="col-md-6">
+      <div class="p-4 border rounded-3 h-100 bg-white">
+        <h5 class="fw-semibold mb-2">What CouncilCare does</h5>
+        <ul class="mb-0 text-muted">
+          <li>Users submit IT repair requests with details and attachments.</li>
+          <li>Technicians claim requests and update progress (In Progress / Resolved).</li>
+          <li>Admins manage users, assign work, and monitor activity.</li>
+        </ul>
+      </div>
+    </div>
 
-    <!-- Call to Action -->
-    <section class="cta text-center py-5" style="background: #242435; color: #F5F5F5;">
-        <div class="container">
-            <h2 class="mb-3">Join CouncilCare Today</h2>
-            <p class="lead mb-4">Take the first step towards smarter IT management.</p>
-            <a href="{% url 'login' %}" class="btn btn-primary btn-lg shadow-sm">Get Started Now</a>
+    <div class="col-md-6">
+      <div class="p-4 border rounded-3 h-100 bg-white">
+        <h5 class="fw-semibold mb-2">Who it’s for</h5>
+        <p class="text-muted mb-2">
+          Built for teams that want to replace paper/WhatsApp-style reporting with a clean, trackable process.
+        </p>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge text-bg-light border">Regular Users</span>
+          <span class="badge text-bg-light border">IT Technicians</span>
+          <span class="badge text-bg-light border">Administrators</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tech stack -->
+  <div class="p-4 border rounded-3 bg-white mb-4">
+    <h5 class="fw-semibold mb-3">Technology</h5>
+
+    <div class="row g-3 text-muted">
+      <div class="col-md-6">
+        <div><strong>Backend:</strong> Django</div>
+        <div><strong>Frontend:</strong> Django Templates + Bootstrap</div>
+        <div><strong>Auth:</strong> Django authentication + role-based access</div>
+      </div>
+      <div class="col-md-6">
+        <div><strong>Database:</strong> SQLite (dev) / PostgreSQL (production)</div>
+        <div><strong>Uploads:</strong> File attachments supported</div>
+        <div><strong>Version Control:</strong> Git + GitHub</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Important note about SQLite -->
+  <div class="alert alert-warning border rounded-3">
+    <div class="fw-semibold mb-1">Important note about the database</div>
+    <div class="text-muted">
+      This live demo should use <strong>PostgreSQL</strong> for reliable data storage.
+      If you use <strong>SQLite</strong> on cloud hosting, data resets after redeploys/restarts because the file storage is temporary.
+    </div>
+  </div>
+  
+
 </div>
 
 {% endblock content %}
+
+{% block footer%}
+
+  <div class="text-center text-muted mt-1" style="font-size: 0.6rem;">
+  Built by Shaka • 
+  <a style="text-decoration: none;" href="https://github.com/mrrugby/councilcare" target="_blank" rel="noopener">
+    View on GitHub
+  </a>
+
+  <div class="d-flex justify-content-center">
+    <a href="https://technav.store" target="_blank" rel="noopener" class="powered-by shadow-sm">
+      <span class="powered-text">Powered by</span>
+      <img src="{% static 'img/taifadevs.png' %}" alt="TaifaDevs logo" class="powered-logo">
+    </a>
+  </div>
+</div>
+{% endblock footer %}
