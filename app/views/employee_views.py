@@ -26,8 +26,7 @@ def employee_dashboard(request):
     
 
     user_requests = RepairRequest.objects.filter(employee=request.user.employee)
-    recent_requests = RepairRequest.objects.filter(employee=request.user.employee).order_by('-created_at')
-    
+    recent_requests = user_requests.order_by('-created_at')
     
   
     pending_count = user_requests.filter(status='PENDING').count()
@@ -72,6 +71,7 @@ def view_repair_request(request, request_id):
     
  
     status_history = StatusHistory.objects.filter(repair_request=repair_request).order_by('updated_at')
+    StatusHistory.objects.create(repair_request=repair_request, status=repair_request.status)
 
  
     context = {

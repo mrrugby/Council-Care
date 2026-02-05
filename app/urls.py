@@ -6,7 +6,7 @@ from app.views.auth import CustomLoginView, CustomLogoutView
 from app.views.home import home
 
 
-from .views.admin_views import (AdminSignUpView, admin_dashboard,  view_request_details, update_request_status,)
+from .views.admin_views import (AdminSignUpView, admin_dashboard,  view_request_details, update_request_status, assign_request,)
 
 
 from .views.technician_views import (
@@ -31,6 +31,8 @@ urlpatterns = [
     path('admin/dashboard/', admin_dashboard, name='admin_dashboard'),
     path('admin/request/<int:request_id>/', view_request_details, name='view_request_details'),
     path('admin/request/<int:request_id>/update/', update_request_status, name='update_request_status'),
+    path('admin/request/<int:request_id>/assign/', assign_request, name='assign_request'),
+    
     
     #tech
     path('technician/signup/', TechnicianSignUpView.as_view(), name='technican_signup'),

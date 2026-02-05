@@ -41,6 +41,8 @@ def update_task_status(request, request_id, employee_username):
         return redirect('login')
 
     repair_request = get_object_or_404(RepairRequest, id=request_id)
+    if repair_request.technician !=request.user.technician:
+        return redirect('technician_dashboard')
     employee = repair_request.employee
     if employee.user.username != employee_username:
         return redirect('login')
@@ -67,12 +69,6 @@ def technician_add_comment(request, repair_request_id):
         return HttpResponseForbidden("Only technicians can comment on this")
     
     return handle_comment_logic(request, repair_request)
-
-
-
-
-
-
 
 
 def handle_comment_logic(request, repair_request):

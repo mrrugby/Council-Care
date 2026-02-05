@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4" style="max-width: 900px;">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <h4 class="mb-0">Request #{{ repair_request.id }}</h4>
+      <div class="text-muted small">Full request details</div>
+    </div>
+    <div class="d-flex gap-2">
+      <a class="btn btn-outline-secondary btn-sm" href="{% url 'admin_dashboard' %}">Back</a>
+      <a class="btn btn-outline-primary btn-sm" href="{% url 'update_request_status' repair_request.id %}">Update status</a>
+      <a class="btn btn-outline-success btn-sm" href="{% url 'assign_request' repair_request.id %}">
+  Assign technician
+</a>
+
+    </div>
+  </div>
+
+  <div class="border rounded bg-white p-3">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <div class="text-muted small">Employee</div>
+        <div class="fw-semibold">{{ repair_request.employee }}</div>
+      </div>
+      <div class="col-md-6">
+        <div class="text-muted small">Technician</div>
+        <div class="fw-semibold">
+          {% if repair_request.technician %}{{ repair_request.technician }}{% else %}<span class="text-muted">Unassigned</span>{% endif %}
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="text-muted small">Status</div>
+        <div class="fw-semibold">{{ repair_request.status }}</div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="text-muted small">Created</div>
+        <div class="fw-semibold">{{ repair_request.created_at|date:"M d, Y, P" }}</div>
+      </div>
+
+      <div class="col-12">
+        <div class="text-muted small">Description</div>
+        <div class="mt-1">{{ repair_request.description }}</div>
+      </div>
+
+      {% if repair_request.image %}
+      <div class="col-12">
+        <div class="text-muted small mb-2">Attachment</div>
+        <div class="attachment-wrapper">
+        <a href="{{ repair_request.image.url }}" target="_blank">
+            <img
+            src="{{ repair_request.image.url }}"
+            alt="Attachment"
+            class="attachment-image"
+            >
+        </a>
+        </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

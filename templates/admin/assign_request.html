@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4" style="max-width: 720px;">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <h4 class="mb-0">Assign Technician</h4>
+      <div class="text-muted small">Request #{{ repair_request.id }}</div>
+    </div>
+    <a class="btn btn-outline-secondary btn-sm" href="{% url 'view_request_details' repair_request.id %}">Back</a>
+  </div>
+
+  <div class="border rounded bg-white p-3">
+    <div class="mb-3">
+      <div class="text-muted small">Current technician</div>
+      <div class="fw-semibold">
+        {% if repair_request.technician %}{{ repair_request.technician }}{% else %}<span class="text-muted">Unassigned</span>{% endif %}
+      </div>
+    </div>
+
+    <form method="POST">
+      {% csrf_token %}
+      <label class="form-label">Select technician</label>
+
+      <select name="technician_id" class="form-select mb-3">
+        <option value="">— Unassigned —</option>
+        {% for t in technicians %}
+          <option value="{{ t.user_id }}"
+            {% if repair_request.technician and repair_request.technician.id == t.user_id %}selected{% endif %}>
+            {{ t.user.username }}
+          </option>
+        {% endfor %}
+      </select>
+
+      <button class="btn btn-primary">Save assignment</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

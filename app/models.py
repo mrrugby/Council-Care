@@ -51,11 +51,11 @@ class RepairRequest(models.Model):
    ]
    
    employee = models.ForeignKey(Employee, on_delete=models.CASCADE, )
-   technician = models.ForeignKey(Technician, on_delete=models.SET_NULL, null=True, blank=True, related_name='assigned_requests')
+   technician = models.ForeignKey(Technician, on_delete=models.SET_NULL, null=True, blank=True, related_name='requests')
    description = models.TextField()
    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDING')
    created_at = models.DateTimeField(auto_now_add=True)
-   updated_at = models.DateTimeField(auto_now_add=True)
+   updated_at = models.DateTimeField(auto_now=True)
    
    
    image = models.ImageField(upload_to='repair_requests/', null=True, blank=True)
@@ -70,8 +70,8 @@ class RepairRequestComment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return f"Comment by {self.user.username} on Request #{self.repair_request.user}"
-    
+        return f"Comment by {self.user.username} on Request #{self.repair_request.id}"
+
     
     
 class StatusHistory(models.Model):
