@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from ..models import RepairRequest
 from ..forms import TechnicanSignUpForm, RepairRequestCommentForm
+from django.db.models import Q
 
 
 class TechnicianSignUpView(CreateView):
@@ -24,7 +25,9 @@ def technician_dashboard(request):
     if not request.user.is_technician:
         return redirect('login')
 
-    repair_requests = RepairRequest.objects.filter(technician=request.user.technician)
+    repair_requests = RepairRequest.objects.filter(
+        Q(technician=request.user.technician) | Q(technician__isnull=True)
+        ).order_by('-created_at')
 
     context = {
         'repair_requests': repair_requests,
