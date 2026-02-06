@@ -115,12 +115,25 @@
 </section>
 
 <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('demoForm');
+    const btn = document.getElementById('demoBtn');
+
+    form.addEventListener('submit', function () {
+      btn.disabled = true;
+      btn.innerHTML = '⏳ Waking up the server…';
+      btn.style.opacity = '0.85';
+    });
+  });
+
+
+
   document.addEventListener('DOMContentLoaded', function () {
     const usernameInput = document.getElementById('{{ form.username.id_for_label }}');
     const passwordInput = document.getElementById('{{ form.password.id_for_label }}');
 
    
-    usernameInput.classList.add('form-control', 'form-control-lg');
+usernameInput.classList.add('form-control', 'form-control-lg');
 usernameInput.setAttribute('placeholder', 'Username');
 usernameInput.style.background = 'rgba(255,255,255,.06)';
 usernameInput.style.border = '1px solid rgba(255,255,255,.12)';
