@@ -1,6 +1,12 @@
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+from django.utils.decorators import method_decorator
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
+from django.views import View
+from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.http import require_POST
 from ..forms import EmployeeSignUpForm, TechnicanSignUpForm, AdminSignUpForm
 
 class CustomLoginView(LoginView):
@@ -17,8 +23,12 @@ class CustomLoginView(LoginView):
         return reverse_lazy('login')
     
 
-class CustomLogoutView(LogoutView):
-    next_page = reverse_lazy('login')
+@method_decorator(csrf_protect, name="dispatch")
+class CustomLogoutView(View):
+    @method_decorator(require_POST)
+    def post(self, request, *args, **kwargs):
+        logout(request)
+        return redirect("login")
     
 
 class AdminSignupView(CreateView):

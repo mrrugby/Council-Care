@@ -10,7 +10,7 @@ load_dotenv(BASE_DIR / ".env")
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 if not SECRET_KEY:
-    raise Exception("secre key not set in .env")
+    raise Exception("secret key not set in .env")
 
 
 DEBUG = os.environ.get("DEBUG", "False") == "True"
