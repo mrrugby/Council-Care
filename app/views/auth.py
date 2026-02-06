@@ -1,3 +1,4 @@
+import os
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import logout
 from django.shortcuts import redirect
@@ -8,9 +9,21 @@ from django.views import View
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.http import require_POST
 from ..forms import EmployeeSignUpForm, TechnicanSignUpForm, AdminSignUpForm
+from django.contrib.auth import authenticate, login
+
 
 class CustomLoginView(LoginView):
     template_name = 'registration/login.html'
+    redirect_authenticated_user = True
+    
+    def get_initial(self):
+        
+        initial = super().get_initial()
+        if self.request.GET.get('demo') == '1':
+            initial['username'] = os.environ.get('DEMO_USERNAME', 'demo')
+            
+            
+        return initial
     
     def get_success_url(self):
         user = self.request.user
@@ -65,3 +78,29 @@ class EmployeeSignUpView(CreateView):
 
     def get_success_url(self):
         return reverse_lazy('login')  
+
+
+@require_POST
+def demo_login(request):
+    username = os.environ.get("DEMO_USERNAME", "demo")
+    password = os.environ.get("DEMO_PASSWORD")
+
+    if not password:
+        return redirect("login")
+
+    user = authenticate(request, username=username, password=password)
+    if user:
+        login(request, user)
+
+       
+        if getattr(user, "is_admin", False):
+            return redirect("admin_dashboard")
+        elif getattr(user, "is_technician", False):
+            return redirect("technician_dashboard")
+        elif getattr(user, "is_employee", False):
+            return redirect("employee_dashboard")
+
+        return redirect("home")
+
+    
+    return redirect("login")

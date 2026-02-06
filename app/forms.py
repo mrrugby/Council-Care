@@ -36,7 +36,9 @@ class CustomUserCreationForm(UserCreationForm):
             'placeholder': 'Confirm your password',
         })
         
-        
+
+
+
 class CustomLoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

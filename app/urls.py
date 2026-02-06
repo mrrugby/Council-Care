@@ -2,7 +2,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from app.views.auth import CustomLoginView, CustomLogoutView
+from app.views.auth import CustomLoginView, CustomLogoutView, demo_login
 from app.views.home import home
 
 
@@ -22,6 +22,8 @@ urlpatterns = [
     #auth
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', CustomLogoutView.as_view(), name='logout'),
+    path("demo-login/", demo_login, name="demo_login"),
+
     
     #home
     path('', home, name='home'), 
@@ -44,4 +46,7 @@ urlpatterns = [
     path('employee/dashboard/', employee_dashboard, name='employee_dashboard'),
     path('employee/request/new/', create_repair_request, name='create_repair_request'),
     path('employee/request/<int:request_id>/', view_repair_request, name='view_repair_request')
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
